@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <title>Einkaufsliste</title>
+
+    <meta charset="UTF-8">
+    <meta name="author" content="Syntax Institut">
+    <meta name="copyright" content="Syntax Institut, 2022">
+    <meta name="description" content="Einkaufsliste als SPA mit Material Design und React.js">
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+</head>
+<body>
+
+<header>
+    <h1>Einkaufsliste</h1>
+    <nav>
+        <input type="text" placeholder="Artikel hinzufügen">
+        <button class="material-icons" style="vertical-align: bottom">add_circle</button>
+    </nav>
+</header>
+<hr>
+
+<main>
+    <section>
+        <h2>Einkaufen
+            <i class="material-icons">expand_less</i>
+        </h2>
+        <dl>
+            <dt>Obst & Gemüse
+                <i class="material-icons">expand_less</i>
+            </dt>
+            <dd><label><input type="checkbox"> Brokkoli</label></dd>
+            <dt>Getreideprodukte
+                <i class="material-icons">expand_less</i>
+            </dt>
+            <dd><label><input type="checkbox"> Reis</label></dd>
+            <dt>Milchprodukte
+                <i class="material-icons">expand_less</i>
+            </dt>
+            <dd><label><input type="checkbox"> Streukäse</label></dd>
+        </dl>
+    </section>
+    <hr>
+    <section>
+        <h2>Erledigt
+            <i class="material-icons">expand_less</i>
+        </h2>
+        <dl>
+            <dt>Hülsenfrüchte
+                <i class="material-icons">expand_less</i>
+            </dt>
+            <dd><label><input type="checkbox" checked> <s>Tofu</s></label></dd>
+        </dl>
+    </section>
+</main>
+<hr>
+
+<footer>
+    <nav>
+        <button>
+            <span class="material-icons">bookmark_add</span> Gruppen
+        </button>
+        <a href="html-advanced-sortierseite.html">
+            <button>
+                <span class="material-icons">bookmark_add</span> Sortieren
+            </button>
+        </a>
+        <button>
+            <span class="material-icons">settings</span> Einstellungen
+        </button>
+    </nav>
+</footer>
+
+</body>
+</html>
