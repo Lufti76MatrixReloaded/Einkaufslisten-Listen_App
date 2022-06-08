@@ -1,6 +1,6 @@
 #root {
     width: 23rem;
-    background-image: url("../img/solen-feyissa-BKhbl1AmKvQ-unsplash.jpg");
+    background-image: url("../img/markt.jpg");
     background-repeat: no-repeat;
     background-position: center center;
     background-attachment: fixed;
@@ -11,9 +11,11 @@
 }
 
 :root {
-    --mdc-theme-primary: #000acc;
+    --mdc-theme-primary: rgba(0, 10, 204, 0.58);
     --mdc-theme-secondary: #0cabdb;
 }
+
+
 
 dt {
     background-color: rgba(66, 94, 179, 0.91);
@@ -25,19 +27,19 @@ h2, dd {
 }
 
 .aktiv {
-    background-color: #4b81d6
+    background-color: #013a90
 }
 
 .inaktiv {
-    background-color: #155555
+    background-color: rgba(3, 90, 167, 0.9)
 }
 
 h1, h2, dl {
-    margin: 5px;
+    margin: 2px;
 }
 
 h2 {
-    padding: 7px 5px 5px 7px;
+    padding: 2px 5px 5px 2px;
 }
 
 i.material-icons {
@@ -52,14 +54,14 @@ button.material-icons {
 
 [type="checkbox"] {
     mso-vertical-page-align: top;
-    margin-right: 8px;
-    margin-left: 8px;
+    margin-right: 2px;
+    margin-left: 2px;
 }
 
 dt {
     display: flex;
     font-weight: 500;
-    padding: 3px 5px;
+    padding: 3px 3px;
 }
 
 dt span {
@@ -73,18 +75,17 @@ dt, dd {
 
 dd {
     display: flex;
-    margin-left: 2px;
-    margin: 1px;
+    margin: 2px;
 }
 
 dd label {
-    padding: 3px 0;
+    padding: 2px 2px;
     overflow: hidden;
     text-overflow: ellipsis;
 }
 
 dd label input[type="checkbox"] {
-    margin: 6px 6px;
+    margin: 2px 2px;
 }
 
 dd input[type="search"] {
@@ -116,7 +117,7 @@ footer {
 }
 
 .material-icons {
-    font-family: 'Material Icons';
+    font-family: Material Icons;
     font-weight: normal;
     font-style: normal;
     font-size: 30px;
