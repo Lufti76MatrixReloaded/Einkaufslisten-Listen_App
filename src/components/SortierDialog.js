@@ -51,7 +51,6 @@ class SortierDialog extends React.Component {
                 <div className="mdc-button__ripple"></div>
                 <span className="mdc-button__label">Abbrechen</span>
               </button>
-              &nbsp;
               <button type="button" className="mdc-button mdc-button--raised"
                       onClick={() => this.props.onDialogClose(this.state.sortierung, true)}>
                 <div className="mdc-button__ripple"></div>

@@ -54,13 +54,13 @@ class Gruppe {
       }
     }
   }
-
+  
   /**
    * Fügt einen Artikel zur ArtikelListe hinzu und gibt diesen als Wert zurück
+   * @param {String} name - Name des neuen Artikels
    * @returns {Artikel} neuerArtikel - der neu erzeugte Artikel
    */
-
-  artikelHinzufuegen () {
+  artikelHinzufuegen(name) {
     let vorhandenerArtikel = this.artikelFinden(name, false)
     if (!vorhandenerArtikel) {
       let neuerArtikel = new Artikel(name, this.artikelListe.length)
@@ -71,19 +71,18 @@ class Gruppe {
       Modell.informieren("[" + this.name + "] Artikel " + name + " existiert schon!", true)
     }
   }
-
+  
   /**
    * Erzeugt einen neuen Artikel aus einem eingelesenen JSON-Objekt.
    * Wird von {@link Modell.initialisieren()} verwendet.
    * @param {object} artikel - das übergebene JSON-Objekt
    */
-  
   artikelObjektHinzufuegen(artikel) {
-    let neuerArtikel = this.artikelHinzufuegen ()
-	  // kopiert alle Properties aus "artikel" nach "neuerArtikel"
+    let neuerArtikel = this.artikelHinzufuegen(artikel.name)
+    // kopiert alle Properties aus "artikel" nach "neuerArtikel"
     Object.assign(neuerArtikel, artikel)
   }
-
+  
   /**
    * Entfernt einen Artikel aus der ArtikelListe
    * @param {String} name - Index des zu entfernenden Artikels

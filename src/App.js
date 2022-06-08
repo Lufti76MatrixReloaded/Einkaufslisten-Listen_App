@@ -21,7 +21,7 @@ class App extends React.Component {
 				showGruppenDialog : false ,
 				showSortierDialog : false ,
 				einkaufenAufgeklappt : true ,
-				erledigtAufgeklappt : false
+				erledigtAufgeklappt : true
 			}
 	}
 	
@@ -41,25 +41,29 @@ class App extends React.Component {
 		} )
 	}
 	
-	einkaufslisteAufgeklappt () {
-		const neuerZustand = ! this.state.einkaufslisteAufgeklappt
-		localStorage.setItem ( "einkaufslisteAufgeklappt" , neuerZustand )
-		this.setState ( { einkaufslisteAufgeklappt : neuerZustand } )
+	einkaufenAufZuKlappen () {
+		const neuerZustand = ! this.state.einkaufenAufgeklappt
+		localStorage.setItem ( "einkaufenAufgeklappt" , neuerZustand )
+		this.setState ( { einkaufenAufgeklappt : neuerZustand } )
 	}
 	
-	schongekauftAufZuKlappen () {
-		const neuerZustand = ! this.state.schongekauftAufZuKlappen
-		localStorage.setItem ( "schongekauftAufZuKlappen" , neuerZustand )
-		this.setState ( { schongekauftAufZuKlappen : neuerZustand } )
+	erledigtAufZuKlappen () {
+		const neuerZustand = ! this.state.erledigtAufgeklappt
+		localStorage.setItem ( "erledigtAufgeklappt" , neuerZustand )
+		this.setState ( { erledigtAufgeklappt : neuerZustand } )
 	}
 	
 	lsLoeschen () {
-		if ( confirm ( "Wollen Sie wirklich alles löschen?!" ) ) {
+		if ( window.confirm ( "Wollen Sie wirklich alles löschen?!" ) ) {
 			localStorage.clear ()
 		}
 	}
 	
-	artikelChecken () {
+	/**
+	 * Hakt einen Artikel ab oder reaktiviert ihn
+	 * @param {Artikel} artikel - der aktuelle Artikel, der gerade abgehakt oder reaktiviert wird
+	 */
+	artikelChecken = ( artikel ) => {
 		artikel.gekauft = ! artikel.gekauft
 		const aktion = ( artikel.gekauft ) ? "erledigt" : "reaktiviert"
 		Modell.informieren ( "[App] Artikel \"" + artikel.name + "\" wurde " + aktion )
@@ -69,22 +73,32 @@ class App extends React.Component {
 	artikelHinzufuegen () {
 		const eingabe = document.getElementById ( "artikelEingabe" )
 		const artikelName = eingabe.value.trim ()
-		if ( artikel.length > 0 ) {
-			Modell.aktiveGruppe.artikelHinzufuegen ()
+		console.debug ( artikelName )
+		if ( artikelName.length > 0 ) {
+			Modell.aktiveGruppe.artikelHinzufuegen ( artikelName )
 			this.setState ( this.state )
 		}
 		eingabe.value = ""
 		eingabe.focus ()
 	}
 	
+	
 	/**
 	 * Hakt einen Artikel ab oder reaktiviert ihn
 	 * @param {Artikel} artikel - der aktuelle Artikel, der gerade abgehakt oder reaktiviert wird
 	 */
+	
 	setAktiveGruppe ( gruppe ) {
 		Modell.aktiveGruppe = gruppe
 		Modell.informieren ( "[App] Gruppe \"" + gruppe.name + "\" ist nun aktiv" )
 		this.setState ( { aktiveGruppe : Modell.aktiveGruppe } )
+	}
+	
+	closeSortierDialog = ( reihenfolge , sortieren ) => {
+		if ( sortieren ) {
+			Modell.sortieren ( reihenfolge )
+		}
+		this.setState ( { showSortierDialog : false } )
 	}
 	
 	render () {
@@ -119,15 +133,7 @@ class App extends React.Component {
 		}
 		let sortierDialog = ""
 		if ( this.state.showSortierDialog ) {
-			sortierDialog = <SortierDialog
-				sortierungen={ Modell.SORTIERUNGEN }
-				onsortierDialog={ () => this.setState ( { closeSortierDialog : false } ) }/>
-		}
-		let lsDialog = ""
-		if ( this.state.showLsLoeschen ) {
-			lsDialog = <lsDialog
-				clearListe={ Modell.gruppenListe }
-				onlsDialog={ () => this.setState ( { closeLsDialog : true } ) }/>
+			sortierDialog = <SortierDialog onDialogClose={ this.closeSortierDialog }/>
 		}
 		return (
 			<div id="container">
@@ -182,7 +188,7 @@ class App extends React.Component {
 						<span className="mdc-button__ripple"></span> Sort
 					</button>
 					<button className="mdc-button mdc-button--raised"
-					        onClick={ () => this.setState ( { showLsLoeschen : true } ) }>
+					        onClick={ this.lsLoeschen }>
 						<span className="material-icons">clear_all</span>
 						<span className="mdc-button__ripple"></span> Clear
 					</button>
@@ -193,5 +199,6 @@ class App extends React.Component {
 			</div>
 		)
 	}
-}	
-	export default App
+}
+
+export default App
