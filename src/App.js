@@ -7,7 +7,17 @@ import SortierDialog from './components/SortierDialog'
 /**
  * @version 1.0
  * @author André Luft <a.luft1976@gmail.com>
- * @description Diese App ist eine Einkaufsliste mit React.js und separatem Model, welche Offline verwendet werden kann
+ * @description Diese App ist eine Einkaufsliste mit React.js und separatem Model, welche Offline verwendet werden kann.
+ * @ziel Diese App weiter zu entwickeln zu einer elementaren Inventar-App. Wer kennt es nicht..?
+ *       Man(n), oder auch Frau geht einkaufen und man sieht mal wieder ein Schnäppchen..! Nun denn, wie wäre es da
+ *       mit einer mobilen App, in der ich nachschlagen könnte, ob ich das Schnäppchen brauche, oder ob ich es nicht
+ *       doch schon in meinem Besitz habe.Das Ganze lässt sich wunderbar mit einer Einkaufslisten-App kombinieren.
+ *       Allgemein finde ich so etwas in dieser Richtung ganz hilfreich, da man z.B. seinen ganzen Besitz in der App
+ *       spiegeln kann, im Falle von Naturkatastrophen, Einbruch, oder Diebstahl, um dieses ggf seiner/ihrer
+ *       Versicherung zu melden. Wir wollen mal sehen, was die Zukunft so bringt.
+ *       Bedanken möchte ich mich ganz herzlich bei Coach Alfred und allen Tutoren, insbesondere Joshua Scherer,
+ *       Brian Moyou, Emily Sali und natürlich Viktoria Brandes, für die tatkräftige Unterstützung, auch wenn es
+ *       manchmal nicht so einfach war.
  * @license Gnu Public Lesser License 3.0
  *
  */
